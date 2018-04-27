@@ -1,0 +1,15 @@
+{
+  "readwrite": "randrw",
+  "datasize": "4M",
+  "numjobs":  "2",
+  "runtime": "20",
+  "engine": "libaio",
+  "iterations": "1",
+  "blocksize": [ "1k", "4k" ],
+  "iodepth": [  "2",  "4" ],
+
+  "devices": [
+    { "dev": "/dev/nvme0n1", "cpu": "0-8",   "rw": "read" },
+    { "dev": "/dev/nvme1n1", "cpu": "9-18" }
+  ]
+}

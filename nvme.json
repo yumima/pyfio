@@ -1,11 +1,7 @@
-
- Python wrapper for fio to test and measure disk performance. The input is
- JSON file, e.g:
-
 {
   "readwrite": "randrw",
   "datasize": "5G",
-  "numjobs":  "9",
+  "numjobs":  ["1", "9", "18"],
   "runtime": "120",
   "engine": "libaio",
   "iterations": "3",
@@ -24,4 +20,3 @@
     { "dev": "nvme7n1", "cpu": "63-71" }
   ]
 }
-

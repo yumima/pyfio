@@ -1,7 +1,7 @@
 ## Python wrapper for fio to test and measure disk performance. 
 
 ### JSON input exmaple:
-
+```json
 {
   "readwrite": "randrw",
   "datasize": "5G",
@@ -24,6 +24,7 @@
     { "dev": "nvme7n1", "cpu": "63-71" }
   ]
 }
+```
 
 ### Usage:
 $ pyfio -c <config_file_name.json>

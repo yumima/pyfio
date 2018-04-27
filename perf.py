@@ -36,7 +36,7 @@ columns="device;iotype;bs;njobs;iodepth;iops;slatmin;slatmax;slatavg;clatmin;cla
 conf_name=os.path.splitext(conf_file)[0]
 identifier=time.strftime("%H%M%S") 
 base_dir=conf_name + "-" + identifier
-if not os.path.exists(base_dir ): os.makedirs(base_dir)
+#if not os.path.exists(base_dir ): os.makedirs(base_dir)
 f = open(base_dir + "-fio.csv", "w+")
 f.write(columns+"\n")
 

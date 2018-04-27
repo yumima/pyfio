@@ -1,5 +1,12 @@
 ## Python wrapper for fio to test and measure disk performance. 
 
+
+### Usage:
+$ pyfio -c <config_file_name.json>
+
+### Output:
+config_file_name/config_file_name-fio.cvs
+
 ### JSON input exmaple:
 ```json
 {
@@ -25,9 +32,3 @@
   ]
 }
 ```
-
-### Usage:
-$ pyfio -c <config_file_name.json>
-
-### Output:
-config_file_name/config_file_name-fio.cvs

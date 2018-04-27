@@ -1,11 +1,11 @@
+## Python wrapper for fio to test and measure disk performance. 
 
- Python wrapper for fio to test and measure disk performance. The input is
- JSON file, e.g:
+### JSON input exmaple:
 
 {
   "readwrite": "randrw",
   "datasize": "5G",
-  "numjobs":  "9",
+  "numjobs":  "1, 8, 16",
   "runtime": "120",
   "engine": "libaio",
   "iterations": "3",
@@ -25,3 +25,8 @@
   ]
 }
 
+### Usage:
+$ pyfio -c <config_file_name.json>
+
+### Output:
+config_file_name/config_file_name-fio.cvs

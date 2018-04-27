@@ -37,7 +37,7 @@ conf_name=os.path.splitext(conf_file)[0]
 identifier=time.strftime("%H%M%S") 
 base_dir=conf_name + "-" + identifier
 if not os.path.exists(base_dir ): os.makedirs(base_dir)
-f = open(base_dir + conf_name + "-fio.csv", "w+")
+f = open(base_dir + "-fio.csv", "w+")
 f.write(columns+"\n")
 
 # for now, loop through each device at a time
@@ -46,7 +46,7 @@ for dev in devices:
     dev_name=(dev["dev"]) if 'dev' in dev else "/tmp"
     dev_str = dev_name.replace("/", "_")
     dev_dir = base_dir + "/" + dev_str
-    if not os.path.exists(dev_dir): os.makedirs(dev_dir)
+    #if not os.path.exists(dev_dir): os.makedirs(dev_dir)
 
     # read and configure per device settings
     cpu=(dev["cpu"]) if 'cpu' in dev else "0-71"
@@ -55,26 +55,26 @@ for dev in devices:
 
     for rw in iotypes.split():
         rw_dir = dev_dir + "/" + rw
-        if not os.path.exists(rw_dir): os.makedirs(rw_dir)
+        #if not os.path.exists(rw_dir): os.makedirs(rw_dir)
         
         for bs in blocksize:
             bs_dir = rw_dir + "/" + bs
-            if not os.path.exists(bs_dir): os.makedirs(bs_dir)
+            #if not os.path.exists(bs_dir): os.makedirs(bs_dir)
             
             for nj in numjobs:
                 nj_dir = bs_dir + "/" + nj + "-job"
-                if not os.path.exists(nj_dir): os.makedirs(nj_dir)
+                #if not os.path.exists(nj_dir): os.makedirs(nj_dir)
 
                 for qd in iodepth:
                     qd_dir = nj_dir + "/" + qd + "-depth"
-                    if not os.path.exists(qd_dir): os.makedirs(qd_dir)
+                    #if not os.path.exists(qd_dir): os.makedirs(qd_dir)
         
                     fio_type_offset = 0
                     iops = 0.0
                     slat = [0.0 for i in range(3)]
                     clat = [0.0 for i in range(3)]
                     lat = [0.0 for i in range(3)]
-                    fname=dq_dir + "/" + conf_name + "-" + dev_str + "-" + rw + "-" + bs + qd +"d" + ".fio"
+                    fname=qd_dir + "/" + conf_name + "-" + dev_str + "-" + rw + "-" + bs + qd +"d" + ".fio"
                     result = "" + str(dev_name) + ";" + str(rw) + ";" + str(bs) + ";" + str(numjobs) + ";" + str(qd) + ";"
                     command = "sudo fio --minimal -name="+str(fname) + \
                         " --bs="+str(bs)+" --ioengine="+str(engine)+ \

@@ -74,7 +74,7 @@ for dev in devices:
                     slat = [0.0 for i in range(3)]
                     clat = [0.0 for i in range(3)]
                     lat = [0.0 for i in range(3)]
-                    fname=qd_dir + "/" + conf_name + "-" + dev_str + "-" + rw + "-" + bs + qd +"d" + ".fio"
+                    fname=conf_name + dev_str + "-" + rw + "-" + bs + "-" +qd +"d" + ".fio"
                     result = "" + str(dev_name) + ";" + str(rw) + ";" + str(bs) + ";" + str(numjobs) + ";" + str(qd) + ";"
                     command = "sudo fio --minimal -name="+str(fname) + \
                         " --bs="+str(bs)+" --ioengine="+str(engine)+ \
